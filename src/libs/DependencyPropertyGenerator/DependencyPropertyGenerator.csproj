@@ -2,15 +2,18 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<NoWarn>$(NoWarn);CA1014;CA1308;CA1031;CA1307</NoWarn>
 		<IsRoslynComponent>true</IsRoslynComponent>
+
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		
 
 	</PropertyGroup>
 
 	<PropertyGroup Label="NuGet">
+		<IncludeReferencedProjects>true</IncludeReferencedProjects>
 		<NoWarn>$(NoWarn);NU5128;CA1724</NoWarn>
 		<DevelopmentDependency>true</DevelopmentDependency>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
@@ -20,25 +23,27 @@
 
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageId>ManagedShell.Optimized</PackageId>
-		<Version>1.0.2</Version>
+		<PackageId>WPF.DependencyProperty</PackageId>
+		<Version>1.0</Version>
 		<Authors>Daniil Rozputnii</Authors>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/rozputnii/ManagedShell</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/rozputnii/ManagedShell.git</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/rozputnii/WPF.DependencyProperty</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/rozputnii/WPF.DependencyProperty.git</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="H.Resources.Generator">
+		<PackageReference Include="H.Resources.Generator" Version="1.6.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.NETCore.Platforms" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.9.2" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
+		<PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
 
 	</ItemGroup>
 
@@ -48,8 +53,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\DependencyPropertyGenerator.Attributes\DependencyPropertyGenerator.Attributes.csproj"
-		                  PrivateAssets="all" />
+		<ProjectReference Include="..\DependencyPropertyGenerator.Attributes\DependencyPropertyGenerator.Attributes.csproj" PrivateAssets="all" />
 		<ProjectReference Include="..\H.Generators.Extensions\H.Generators.Extensions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="DotNet.ReproducibleBuilds" Version="1.1.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
 	</ItemGroup>
 </Project>
